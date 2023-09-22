@@ -13,9 +13,9 @@ function playRound(playerSelection, computerSelection) {
         playerSelection === 'paper'    && computerSelection === 'rock')
 	return `You Win! ${playerSelection} beats ${computerSelection}`;
 
-    else if (playerSelection === 'rock'     && computerSelection === 'paper' ||
-             playerSelection === 'scissors' && computerSelection === 'rock' ||
-             playerSelection === 'paper'    && computerSelection === 'scissors')
+    if (playerSelection === 'rock'     && computerSelection === 'paper' ||	
+        playerSelection === 'scissors' && computerSelection === 'rock' ||
+        playerSelection === 'paper'    && computerSelection === 'scissors')
 	return `You Loose! ${computerSelection} beats ${playerSelection}`;
     else
 	return `Draw! ${playerSelection} vs. ${computerSelection}`;
