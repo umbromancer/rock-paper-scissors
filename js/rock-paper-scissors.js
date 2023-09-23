@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    let moves = ['Rock', 'Paper', 'Scissors'];
+    let moves = ['rock', 'paper', 'scissors'];
     let choice = Math.floor(Math.random() * 3);
     return moves[choice];
 }
@@ -21,6 +21,33 @@ function playRound(playerSelection, computerSelection) {
 	return `Draw! ${playerSelection} vs. ${computerSelection}`;
 }
 
-const playerSelection = 'rock';
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function getPlayerChoice() {
+    let moves = ['rock', 'paper', 'scissors'];
+    let choice = '';
+    while (true) {
+	choice = prompt(`Your play is 'rock', 'paper' or 'scissors'?
+('Cancel' to quit the game)`);
+	if (Object.is(choice, null))
+	    break;
+	if (moves.includes(choice.toLowerCase()))
+	    break;
+	else
+	    alert(`You must enter one of the three options!
+Or press cancel to abandon the game.`);
+    }
+    return choice;
+    
+}
+
+function game() {
+    let computerSelection;
+    let playerSelection;
+    for (let turn = 1; turn <= 5; turn++) {    
+	playerSelection = getPlayerChoice();
+	if (!playerSelection)
+	    break;
+	computerSelection = getComputerChoice();
+	console.log(playRound(playerSelection, computerSelection));
+    }
+}
+
